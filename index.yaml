@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   product-traceability-foss-frontend:
   - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-12-12T13:25:28.574001512Z"
+    description: A Helm chart for Traceability frontend application
+    digest: 8dd0e22880d413d8bf03f240f41d8f8a8f5f71b11495bce3ea2dc8d9ed18b2f7
+    name: product-traceability-foss-frontend
+    type: application
+    urls:
+    - https://github.com/catenax-ng/product-traceability-foss-frontend/releases/download/helm-charts-1.0.0/product-traceability-foss-frontend-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-09-05T07:50:15.746793097Z"
     description: A Helm chart for Traceability frontend application
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://github.com/catenax-ng/product-traceability-foss-frontend/releases/download/product-traceability-foss-frontend-0.1.0/product-traceability-foss-frontend-0.1.0.tgz
     version: 0.1.0
-generated: "2022-09-05T07:50:15.746798098Z"
+generated: "2022-12-12T13:25:28.574009212Z"
