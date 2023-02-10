@@ -21,6 +21,17 @@ entries:
     urls:
     - https://github.com/catenax-ng/product-traceability-foss-frontend/releases/download/product-traceability-foss-frontend-0.1.0/product-traceability-foss-frontend-0.1.0.tgz
     version: 0.1.0
+  traceability-foss-frontend:
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2023-02-10T13:19:48.878443613Z"
+    description: A Helm chart for Traceability frontend application
+    digest: 22ee01ed4e28aced2859b64bbc665ed7b495c61b2d9d2bd056ab21ac71352b2e
+    name: traceability-foss-frontend
+    type: application
+    urls:
+    - https://github.com/catenax-ng/tx-traceability-foss-frontend/releases/download/traceability-foss-frontend-1.1.0/traceability-foss-frontend-1.1.0.tgz
+    version: 1.1.0
   tx-traceability-foss-frontend:
   - apiVersion: v2
     appVersion: 1.1.0
@@ -32,4 +43,4 @@ entries:
     urls:
     - https://github.com/catenax-ng/tx-traceability-foss-frontend/releases/download/helm-charts-1.1.0/tx-traceability-foss-frontend-1.1.0.tgz
     version: 1.1.0
-generated: "2023-02-06T11:05:44.513030042Z"
+generated: "2023-02-10T13:19:48.878451313Z"
