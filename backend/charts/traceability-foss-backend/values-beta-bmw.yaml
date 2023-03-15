@@ -59,17 +59,17 @@ traceability:
 datasource:
   url: jdbc:postgresql://traceability-foss-bmw-backend-postgresql:5432/trace
   username: trace
-  password: <path:traceability-foss/data/beta-bmw/database#tracePassword>
+  password: <path:traceability-foss/data/beta_bmw/database#tracePassword>
 
 oauth2:
-  clientId: <path:traceability-foss/data/beta-bmw/keycloak/oauth2#clientId>
-  clientSecret: <path:traceability-foss/data/beta-bmw/keycloak/oauth2#clientSecret>
+  clientId: <path:traceability-foss/data/beta_bmw/keycloak/oauth2#clientId>
+  clientSecret: <path:traceability-foss/data/beta_bmw/keycloak/oauth2#clientSecret>
   clientTokenUri: "https://centralidp.beta.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
   jwkSetUri: "https://centralidp.beta.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/certs"
   resourceClient: "Cl17-CX-Part"
 
 edc:
-  apiKey: "<path:traceability-foss/data/beta-bmw/edc/controlplane#edc.api.control.auth.apikey.value>"
+  apiKey: "<path:traceability-foss/data/beta_bmw/edc/controlplane#edc.api.control.auth.apikey.value>"
   providerUrl: "https://tracex-bmw-consumer-controlplane.beta.demo.catena-x.net"
 
 postgresql:
@@ -79,8 +79,8 @@ postgresql:
   fullnameOverride: "traceability-foss-bmw-backend-postgresql"
 
   auth:
-    postgresPassword: "<path:traceability-foss/data/beta-bmw/database#postgresPassword>"
-    password: "<path:traceability-foss/data/beta-bmw/database#tracePassword>"
+    postgresPassword: "<path:traceability-foss/data/beta_bmw/database#postgresPassword>"
+    password: "<path:traceability-foss/data/beta_bmw/database#tracePassword>"
     database: "trace"
     username: "trace"
 
@@ -106,7 +106,7 @@ pgadmin4:
         secretName: tls-secret
   env:
     email: pgadmin4@trace.foss
-    password: "<path:traceability-foss/data/beta-bmw/database#pgadminPassword>"
+    password: "<path:traceability-foss/data/beta_bmw/database#pgadminPassword>"
     variables:
       - name: PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED
         value: "False"
@@ -156,14 +156,14 @@ irs-helm:
   bpdm:
     url: https://partners-pool.beta.demo.catena-x.net
 
-  minioUser: <path:traceability-foss/data/beta-bmw/minio#user>
-  minioPassword: <path:traceability-foss/data/beta-bmw/minio#password>
+  minioUser: <path:traceability-foss/data/beta_bmw/minio#user>
+  minioPassword: <path:traceability-foss/data/beta_bmw/minio#password>
   minioUrl: http://tracex-bmw-irs-minio:9000
 
   keycloak:
     oauth2:
-      clientId: <path:traceability-foss/data/beta-bmw/keycloak/oauth2#clientId>
-      clientSecret: <path:traceability-foss/data/beta-bmw/keycloak/oauth2#clientSecret>
+      clientId: <path:traceability-foss/data/beta_bmw/keycloak/oauth2#clientId>
+      clientSecret: <path:traceability-foss/data/beta_bmw/keycloak/oauth2#clientSecret>
       clientTokenUri: https://centralidp.beta.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token
       jwkSetUri: https://centralidp.beta.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/certs
 
@@ -172,15 +172,15 @@ irs-helm:
       endpoint:
         data: http://tracex-bmw-consumer-controlplane:8181/data
       apikey:
-        secret: <path:traceability-foss/data/beta-bmw/edc/controlplane#edc.api.control.auth.apikey.value>
+        secret: <path:traceability-foss/data/beta_bmw/edc/controlplane#edc.api.control.auth.apikey.value>
 
   minio:
     nameOverride: "tracex-bmw-irs-minio"
     fullnameOverride: "tracex-bmw-irs-minio"
     serviceAccount:
       create: false
-    rootUser: <path:traceability-foss/data/beta-bmw/minio#user>
-    rootPassword: <path:traceability-foss/data/beta-bmw/minio#password>
+    rootUser: <path:traceability-foss/data/beta_bmw/minio#user>
+    rootPassword: <path:traceability-foss/data/beta_bmw/minio#password>
 
 ###################################
 # IRS EDC Consumer configuration  #
@@ -198,9 +198,9 @@ irs-edc-consumer:
       readOnlyRootFilesystem: false
 
     auth:
-      postgresPassword: <path:traceability-foss/data/beta-bmw/edc/database#postgresPassword>
-      username: <path:traceability-foss/data/beta-bmw/edc/database#user>
-      password: <path:traceability-foss/data/beta-bmw/edc/database#password>
+      postgresPassword: <path:traceability-foss/data/beta_bmw/edc/database#postgresPassword>
+      username: <path:traceability-foss/data/beta_bmw/edc/database#user>
+      password: <path:traceability-foss/data/beta_bmw/edc/database#password>
       database: "edc"
 
   # Values for consumer edc-controlplane.
@@ -251,7 +251,7 @@ irs-edc-consumer:
     configuration:
       # -- EDC configuration.properties configuring aspects of the [eclipse-dataspaceconnector](https://github.com/eclipse-dataspaceconnector/DataSpaceConnector)
       properties: |-
-        edc.api.auth.key=<path:traceability-foss/data/beta-bmw/edc/controlplane#edc.api.control.auth.apikey.value>
+        edc.api.auth.key=<path:traceability-foss/data/beta_bmw/edc/controlplane#edc.api.control.auth.apikey.value>
         ids.webhook.address=https://tracex-bmw-consumer-controlplane.beta.demo.catena-x.net
 
         edc.ids.id=urn:connector:edc-consumer-controlplane
@@ -279,7 +279,7 @@ irs-edc-consumer:
         edc.oauth.token.url=https://daps.beta.demo.catena-x.net/token
 
         edc.vault.hashicorp.url=https://vault.demo.catena-x.net
-        edc.vault.hashicorp.token=<path:traceability-foss/data/beta-bmw/edc#edc.vault.hashicorp.token>
+        edc.vault.hashicorp.token=<path:traceability-foss/data/beta_bmw/edc#edc.vault.hashicorp.token>
         edc.vault.hashicorp.timeout.seconds=30
         edc.vault.hashicorp.health.check.enabled=true
         edc.vault.hashicorp.health.check.standby.ok=true
@@ -291,24 +291,24 @@ irs-edc-consumer:
         # Postgresql related configuration
         edc.datasource.asset.name=asset
         edc.datasource.asset.url=jdbc:postgresql://tracex-bmw-consumer-edc-postgresql-hl:5432/edc
-        edc.datasource.asset.user=<path:traceability-foss/data/beta-bmw/edc/database#user>
-        edc.datasource.asset.password=<path:traceability-foss/data/beta-bmw/edc/database#password>
+        edc.datasource.asset.user=<path:traceability-foss/data/beta_bmw/edc/database#user>
+        edc.datasource.asset.password=<path:traceability-foss/data/beta_bmw/edc/database#password>
         edc.datasource.contractdefinition.name=contractdefinition
         edc.datasource.contractdefinition.url=jdbc:postgresql://tracex-bmw-consumer-edc-postgresql-hl:5432/edc
-        edc.datasource.contractdefinition.user=<path:traceability-foss/data/beta-bmw/edc/database#user>
-        edc.datasource.contractdefinition.password=<path:traceability-foss/data/beta-bmw/edc/database#password>
+        edc.datasource.contractdefinition.user=<path:traceability-foss/data/beta_bmw/edc/database#user>
+        edc.datasource.contractdefinition.password=<path:traceability-foss/data/beta_bmw/edc/database#password>
         edc.datasource.contractnegotiation.name=contractnegotiation
         edc.datasource.contractnegotiation.url=jdbc:postgresql://tracex-bmw-consumer-edc-postgresql-hl:5432/edc
-        edc.datasource.contractnegotiation.user=<path:traceability-foss/data/beta-bmw/edc/database#user>
-        edc.datasource.contractnegotiation.password=<path:traceability-foss/data/beta-bmw/edc/database#password>
+        edc.datasource.contractnegotiation.user=<path:traceability-foss/data/beta_bmw/edc/database#user>
+        edc.datasource.contractnegotiation.password=<path:traceability-foss/data/beta_bmw/edc/database#password>
         edc.datasource.policy.name=policy
         edc.datasource.policy.url=jdbc:postgresql://tracex-bmw-consumer-edc-postgresql-hl:5432/edc
-        edc.datasource.policy.user=<path:traceability-foss/data/beta-bmw/edc/database#user>
-        edc.datasource.policy.password=<path:traceability-foss/data/beta-bmw/edc/database#password>
+        edc.datasource.policy.user=<path:traceability-foss/data/beta_bmw/edc/database#user>
+        edc.datasource.policy.password=<path:traceability-foss/data/beta_bmw/edc/database#password>
         edc.datasource.transferprocess.name=transferprocess
         edc.datasource.transferprocess.url=jdbc:postgresql://tracex-bmw-consumer-edc-postgresql-hl:5432/edc
-        edc.datasource.transferprocess.user=<path:traceability-foss/data/beta-bmw/edc/database#user>
-        edc.datasource.transferprocess.password=<path:traceability-foss/data/beta-bmw/edc/database#password>
+        edc.datasource.transferprocess.user=<path:traceability-foss/data/beta_bmw/edc/database#user>
+        edc.datasource.transferprocess.password=<path:traceability-foss/data/beta_bmw/edc/database#password>
 
   # Values for consumer edc-dataplane.
   edc-dataplane:
@@ -351,7 +351,7 @@ irs-edc-consumer:
 
     configuration:
       properties: |-
-        edc.api.auth.key=<path:traceability-foss/data/beta-bmw/edc/controlplane#edc.api.control.auth.apikey.value>
+        edc.api.auth.key=<path:traceability-foss/data/beta_bmw/edc/controlplane#edc.api.control.auth.apikey.value>
 
         edc.dataplane.token.validation.endpoint=http://tracex-bmw-consumer-controlplane:8182/validation/token
 
@@ -365,7 +365,7 @@ irs-edc-consumer:
         edc.oauth.token.url=https://daps.beta.demo.catena-x.net/token
 
         edc.vault.hashicorp.url=https://vault.demo.catena-x.net
-        edc.vault.hashicorp.token=<path:traceability-foss/data/beta-bmw/edc#edc.vault.hashicorp.token>
+        edc.vault.hashicorp.token=<path:traceability-foss/data/beta_bmw/edc#edc.vault.hashicorp.token>
         edc.vault.hashicorp.timeout.seconds=30
         edc.vault.hashicorp.health.check.enabled=true
         edc.vault.hashicorp.health.check.standby.ok=true
