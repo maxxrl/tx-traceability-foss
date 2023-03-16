@@ -58,7 +58,7 @@ public class AssetService {
 		}
 	}
 
-	@Async(value = AssetsAsyncConfig.SYNCHRONIZE_ASSETS_EXECUTOR)
+//	@Async(value = AssetsAsyncConfig.SYNCHRONIZE_ASSETS_EXECUTOR)
 	public void synchronizeAssets(String globalAssetId) {
 		logger.info("Synchronizing assets for globalAssetId: {}", globalAssetId);
 
