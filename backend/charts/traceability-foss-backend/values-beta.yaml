@@ -357,9 +357,9 @@ irs-edc-consumer:
 
         edc.receiver.http.endpoint=http://product-traceability-foss-backend-irs-aaswrapper:9192/callback/endpoint-data-reference
 
-        edc.oauth.client.id=D6:DC:B8:0E:8E:A0:DD:EC:03:F9:80:49:88:75:28:72:3C:AE:93:1F:keyid:D6:DC:B8:0E:8E:A0:DD:EC:03:F9:80:49:88:75:28:72:3C:AE:93:1F
-        edc.oauth.public.key.alias=daps-cert-beta
-        edc.oauth.private.key.alias=daps-cert-key-beta
+        edc.oauth.client.id=0F:18:07:D3:76:76:4A:9C:3D:A4:09:A2:AC:72:65:8D:19:3D:DF:0C:keyid:0F:18:07:D3:76:76:4A:9C:3D:A4:09:A2:AC:72:65:8D:19:3D:DF:0C
+        edc.oauth.public.key.alias=daps-cert-beta-zf
+        edc.oauth.private.key.alias=daps-cert-key-beta-zf
         edc.oauth.provider.audience=idsc:IDS_CONNECTORS_ALL
         edc.oauth.provider.jwks.url=https://daps.beta.demo.catena-x.net/.well-known/jwks.json
         edc.oauth.token.url=https://daps.beta.demo.catena-x.net/token

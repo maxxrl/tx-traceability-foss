@@ -4,12 +4,12 @@ dependencies:
   version: 11.9.13
 - name: pgadmin4
   repository: https://helm.runix.net
-  version: 1.13.6
+  version: 1.14.4
 - name: irs-helm
   repository: https://eclipse-tractusx.github.io/item-relationship-service
-  version: 4.2.1
+  version: 4.3.2
 - name: irs-edc-consumer
   repository: https://catenax-ng.github.io/tx-item-relationship-service
   version: 1.0.2
-digest: sha256:37f44523dcc51b7a356fc058e47a0514ba7ab2e9c08e11ec74e7d6b07a2468ba
-generated: "2023-02-20T16:37:22.607162+01:00"
+digest: sha256:350c3d5cf8e1340440eed66a11684de874868acdbeb157cf42950ae57f36feeb
+generated: "2023-03-16T09:52:17.216432+01:00"
