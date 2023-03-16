@@ -22,12 +22,18 @@
 package org.eclipse.tractusx.traceability.assets.infrastructure.adapters.feign.irs;
 
 import org.eclipse.tractusx.traceability.assets.infrastructure.adapters.feign.irs.model.JobResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.function.Predicate;
 
 public class JobRunning implements Predicate<JobResponse> {
+    private final static Logger logger = LoggerFactory.getLogger("RetryLogger");
+
 	@Override
 	public boolean test(JobResponse jobResponse) {
+        logger.info("Testing retry status for JobResponse: {}", jobResponse);
+        logger.info("Should we retry? {}", jobResponse.isRunning());
 		return jobResponse.isRunning();
 	}
 }
