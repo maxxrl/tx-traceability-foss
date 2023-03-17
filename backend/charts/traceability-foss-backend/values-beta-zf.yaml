@@ -40,6 +40,7 @@ javaToolOptions: >-
   -Dfeign.registryApi.url=https://semantics.beta.demo.catena-x.net/registry
   -Dfeign.portalApi.url=https://portal-backend.beta.demo.catena-x.net/api
   -Dedc.bpn-provider-url-mappings.BPNL000000000VDT=https://tracex-bmw-consumer-controlplane.beta.demo.catena-x.net
+  -Dedc.bpn-provider-url-mappings.BPNL000000000EPM=https://edc.c-93c63e9.kyma.ondemand.com
 
 ingress:
   enabled: true
