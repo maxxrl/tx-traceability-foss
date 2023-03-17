@@ -38,6 +38,7 @@ javaToolOptions: >-
   -Dcors.origins=https://traceability-portal-bmw.beta.demo.catena-x.net/
   -Dfeign.irsApi.url=https://tracex-bmw-irs.beta.demo.catena-x.net
   -Dfeign.registryApi.url=https://semantics.beta.demo.catena-x.net/registry
+  -Dfeign.portalApi.url=https://portal-backend.beta.demo.catena-x.net/api
   -Dedc.callback-urls=http://tracex-bmw-irs:8181/internal/endpoint-data-reference
   -Dedc.bpn-provider-url-mappings.BPNL0000000005VV=https://tracex-consumer-controlplane.beta.demo.catena-x.net
 
