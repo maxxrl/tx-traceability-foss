@@ -38,61 +38,55 @@ import java.util.List;
 @Component
 public class EDCUrlProviderDispatcher implements EDCUrlProvider {
 
-	private static final Logger logger = LoggerFactory.getLogger(EDCUrlProviderDispatcher.class);
+    private static final Logger logger = LoggerFactory.getLogger(EDCUrlProviderDispatcher.class);
 
-	private final DataspaceDiscoveryService dataspaceDiscoveryService;
+    private final DataspaceDiscoveryService dataspaceDiscoveryService;
 
-	private final EnvironmentAwareMockEDCUrlProvider environmentAwareMockEDCUrlProvider;
+    private final EnvironmentAwareMockEDCUrlProvider environmentAwareMockEDCUrlProvider;
 
-	private final EdcProperties edcProperties;
+    private final EdcProperties edcProperties;
 
-	public EDCUrlProviderDispatcher(PortalAdministrationApiClient portalAdministrationApiClient,
-									Environment environment,
-									EdcProperties edcProperties) {
-		this.dataspaceDiscoveryService = new DataspaceDiscoveryService(portalAdministrationApiClient, edcProperties);
+    public EDCUrlProviderDispatcher(PortalAdministrationApiClient portalAdministrationApiClient,
+                                    Environment environment,
+                                    EdcProperties edcProperties) {
+        this.dataspaceDiscoveryService = new DataspaceDiscoveryService(portalAdministrationApiClient, edcProperties);
 
-		if (ApplicationProfiles.doesNotContainTestProfile(environment)) {
-			this.environmentAwareMockEDCUrlProvider = new EnvironmentAwareMockEDCUrlProvider(environment, edcProperties);
-		} else {
-			this.environmentAwareMockEDCUrlProvider = null;
-		}
+        if (ApplicationProfiles.doesNotContainTestProfile(environment)) {
+            this.environmentAwareMockEDCUrlProvider = new EnvironmentAwareMockEDCUrlProvider(environment, edcProperties);
+        } else {
+            this.environmentAwareMockEDCUrlProvider = null;
+        }
 
-		this.edcProperties = edcProperties;
-	}
+        this.edcProperties = edcProperties;
+    }
 
-	@Override
-	public List<String> getEdcUrls(String bpn) {
-		final List<String> edcUrls;
+    @Override
+    public List<String> getEdcUrls(String bpn) {
+        List<String> edcUrls = getEdcUrlsFallback(bpn);
 
-		try {
-			edcUrls = dataspaceDiscoveryService.getEdcUrls(bpn);
-		} catch (Exception e) {
-			logger.warn("Exception during fetching edc urls for {} bpn. Using fallback method if available", bpn);
+        if (edcUrls.isEmpty()) {
+            try {
+                edcUrls = dataspaceDiscoveryService.getEdcUrls(bpn);
+            } catch (Exception e) {
+                logger.warn("Exception during fetching edc urls for {} bpn. No URL found.", bpn);
+            }
+        }
 
-			return getEdcUrlsFallback(bpn);
-		}
+        return edcUrls;
+    }
 
-		if (!edcUrls.isEmpty()) {
-			return edcUrls;
-		} else {
-			logger.warn("No edc urls present for {} bpn. Using fallback method if available", bpn);
+    private List<String> getEdcUrlsFallback(String bpn) {
+        if (environmentAwareMockEDCUrlProvider != null) {
+            return environmentAwareMockEDCUrlProvider.getEdcUrls(bpn);
+        } else {
+            logger.warn("No fallback method available for getting edc urls");
 
-			return getEdcUrlsFallback(bpn);
-		}
-	}
+            return Collections.emptyList();
+        }
+    }
 
-	private List<String> getEdcUrlsFallback(String bpn) {
-		if (environmentAwareMockEDCUrlProvider != null) {
-			return environmentAwareMockEDCUrlProvider.getEdcUrls(bpn);
-		} else {
-			logger.warn("No fallback method available for getting edc urls");
-
-			return Collections.emptyList();
-		}
-	}
-
-	@Override
-	public String getSenderUrl() {
-		return edcProperties.getProviderEdcUrl();
-	}
+    @Override
+    public String getSenderUrl() {
+        return edcProperties.getProviderEdcUrl();
+    }
 }

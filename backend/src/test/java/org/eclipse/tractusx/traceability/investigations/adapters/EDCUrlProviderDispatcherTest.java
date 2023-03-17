@@ -79,10 +79,6 @@ public class EDCUrlProviderDispatcherTest {
 
 		when(edcProperties.getBpnProviderUrlMappings()).thenReturn(Map.of(bpn, connectorEndpoint));
 
-		// and
-		when(portalAdministrationApiClient.getConnectorEndpointMappings(List.of(bpn)))
-			.thenThrow(serviceUnavailable());
-
 		// when
 		List<String> edcUrls = edcUrlProviderDispatcher.getEdcUrls(bpn);
 
@@ -98,30 +94,11 @@ public class EDCUrlProviderDispatcherTest {
 
 		when(edcProperties.getBpnProviderUrlMappings()).thenReturn(Map.of(bpn, connectorEndpoint));
 
-		// and
-		when(portalAdministrationApiClient.getConnectorEndpointMappings(List.of(bpn))).thenReturn(null);
-
 		// when
 		List<String> edcUrls = edcUrlProviderDispatcher.getEdcUrls(bpn);
 
 		// then
 		assertThat(edcUrls).isEqualTo(List.of(connectorEndpoint));
-	}
-
-	@Test
-	void testEdcUrlProviderDispatcherGetEdcUrlsFromFallbackDefaultMapping() {
-		// given
-		String bpn = "BPN1234";
-
-		// and
-		when(portalAdministrationApiClient.getConnectorEndpointMappings(List.of(bpn)))
-			.thenThrow(new RuntimeException("unit-tests"));
-
-		// when
-		List<String> edcUrls = edcUrlProviderDispatcher.getEdcUrls(bpn);
-
-		// then
-		assertThat(edcUrls).isEqualTo(List.of("https://trace-x-test-edc.test.demo.catena-x.net"));
 	}
 
 	private FeignException.ServiceUnavailable serviceUnavailable() {

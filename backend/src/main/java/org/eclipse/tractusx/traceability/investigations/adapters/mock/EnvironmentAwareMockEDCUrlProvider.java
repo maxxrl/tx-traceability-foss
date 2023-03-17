@@ -28,6 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class EnvironmentAwareMockEDCUrlProvider implements EDCUrlProvider {
@@ -37,8 +38,6 @@ public class EnvironmentAwareMockEDCUrlProvider implements EDCUrlProvider {
 	private static final String ENVIRONMENT_PLACEHOLDER = "{environment}";
 
 	private static final String DEFAULT_EDC_SENDER_URL = "https://tracex-consumer-controlplane.%s.demo.catena-x.net".formatted(ENVIRONMENT_PLACEHOLDER);
-
-	private static final String DEFAULT_EDC_PROVIDER_URL = "https://trace-x-test-edc.%s.demo.catena-x.net".formatted(ENVIRONMENT_PLACEHOLDER);
 
 	private final String applicationEnvironment;
 
@@ -55,15 +54,15 @@ public class EnvironmentAwareMockEDCUrlProvider implements EDCUrlProvider {
 
 	@Override
 	public List<String> getEdcUrls(String bpn) {
-		String edcUrl = edcProperties.getBpnProviderUrlMappings().getOrDefault(bpn, defaultProviderUrl());
+		String edcUrl = edcProperties.getBpnProviderUrlMappings().get(bpn);
 
-		logger.info("Resolved {} url for {} bpn", edcUrl, bpn);
+        if (edcUrl != null && !edcUrl.isEmpty()) {
+            logger.info("Resolved URL {} for BPN {}", edcUrl, bpn);
 
-		return List.of(edcUrl);
-	}
+            return List.of(edcUrl);
+        }
 
-	private String defaultProviderUrl() {
-		return DEFAULT_EDC_PROVIDER_URL.replace(ENVIRONMENT_PLACEHOLDER, applicationEnvironment);
+        return Collections.emptyList();
 	}
 
 	@Override
