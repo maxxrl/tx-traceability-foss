@@ -1,0 +1,31 @@
+apiVersion: v1
+entries:
+  traceability-foss-backend:
+  - apiVersion: v2
+    appVersion: 2.3.12
+    created: "2023-03-20T19:27:30.260760929Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.x.x
+    - condition: pgadmin4.enabled
+      name: pgadmin4
+      repository: https://helm.runix.net
+      version: 1.13.6
+    - condition: irs-helm.enabled
+      name: irs-helm
+      repository: https://eclipse-tractusx.github.io/item-relationship-service
+      version: 4.2.1
+    - condition: irs-edc-consumer.enabled
+      name: irs-edc-consumer
+      repository: https://catenax-ng.github.io/tx-item-relationship-service
+      version: 1.0.2
+    description: A Helm chart for Traceability backend application
+    digest: a251f5ee28ea4842f2f888a3e8352162e9f15cac42862c54babe78eb72a1e749
+    name: traceability-foss-backend
+    type: application
+    urls:
+    - https://github.com/catenax-ng/tx-traceability-foss/releases/download/2.3.12/traceability-foss-backend-2.3.12.tgz
+    version: 2.3.12
+generated: "2023-03-20T19:27:30.260777529Z"
