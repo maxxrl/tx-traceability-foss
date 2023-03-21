@@ -6,7 +6,8 @@ on:
     branches:
       - main
     paths:
-      - 'charts/**'
+      - 'backend/charts/**'
+      - 'frontend/charts/**'
 
 jobs:
   Get-BE-helm-charts-versions:
