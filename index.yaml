@@ -39,4 +39,14 @@ entries:
     urls:
     - https://github.com/catenax-ng/tx-traceability-foss/releases/download/traceability-foss-frontend-2.3.14/traceability-foss-frontend-2.3.14.tgz
     version: 2.3.14
-generated: "2023-03-20T19:36:43.847007483Z"
+  - apiVersion: v2
+    appVersion: 3.0.0
+    created: "2023-03-21T07:46:07.531053368Z"
+    description: A Helm chart for Traceability frontend application
+    digest: 243235b35c3d7a8c3cd1c28776b5c8257af44bc01237ee7fa4c6c1af87040029
+    name: traceability-foss-frontend
+    type: application
+    urls:
+    - https://github.com/catenax-ng/tx-traceability-foss/releases/download/traceability-foss-frontend-1.1.4/traceability-foss-frontend-1.1.4.tgz
+    version: 1.1.4
+generated: "2023-03-21T07:46:07.531070768Z"
