@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   product-traceability-foss:
   - apiVersion: v2
+    appVersion: 3.0.3
+    created: "2023-03-23T10:30:42.098046098Z"
+    description: An umbrella Helm chart for Kubernetes
+    digest: 8c99ffceb0e6a25da7b5aa7b8770ecf3e715ccacf2319db6e08a1fa977bef7f0
+    name: product-traceability-foss
+    type: application
+    urls:
+    - https://github.com/catenax-ng/tx-traceability-foss/releases/download/helm-charts-1.1.6/product-traceability-foss-1.1.6.tgz
+    version: 1.1.6
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-03-22T12:40:20.244688825Z"
     description: An umbrella Helm chart for Kubernetes
@@ -60,4 +70,4 @@ entries:
     urls:
     - https://github.com/catenax-ng/tx-traceability-foss/releases/download/traceability-foss-frontend-1.1.4/traceability-foss-frontend-1.1.4.tgz
     version: 1.1.4
-generated: "2023-03-22T12:40:20.244711026Z"
+generated: "2023-03-23T10:30:42.098060198Z"
