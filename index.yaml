@@ -23,6 +23,29 @@ entries:
     version: 0.1.0
   traceability-foss:
   - apiVersion: v2
+    appVersion: 3.0.0
+    created: "2023-03-27T20:33:00.794845821Z"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.x.x
+    - name: pgadmin4
+      repository: https://helm.runix.net
+      version: 1.13.6
+    - name: irs-helm
+      repository: https://eclipse-tractusx.github.io/item-relationship-service
+      version: 4.2.1
+    - name: irs-edc-consumer
+      repository: https://catenax-ng.github.io/tx-item-relationship-service
+      version: 1.0.2
+    description: An umbrella Helm chart for eclipse-tractusx/traceability-foss project
+    digest: 5dfaf0724c47132cee4f03120eed20b0b92d666183598bf69d9a8c44e0870eef
+    name: traceability-foss
+    type: application
+    urls:
+    - https://github.com/catenax-ng/tx-traceability-foss/releases/download/helm-charts-1.2.3/traceability-foss-1.2.5.tgz
+    version: 1.2.5
+  - apiVersion: v2
     appVersion: 3.0.3
     created: "2023-03-24T12:33:16.03777981Z"
     description: An umbrella Helm chart for Kubernetes
@@ -91,4 +114,4 @@ entries:
     urls:
     - https://github.com/catenax-ng/tx-traceability-foss/releases/download/traceability-foss-frontend-1.1.4/traceability-foss-frontend-1.1.4.tgz
     version: 1.1.4
-generated: "2023-03-24T12:33:16.03779481Z"
+generated: "2023-03-27T20:33:00.794869323Z"
