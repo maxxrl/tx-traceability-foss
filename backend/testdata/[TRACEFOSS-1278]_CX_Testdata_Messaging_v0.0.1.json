@@ -1,6 +1,7 @@
 {
   "https://catenax.io/schema/TestDataContainer/1.0.0" : [ {
     "catenaXId" : "urn:uuid:0fed587c-7ab4-4597-9841-1718e9693003",
+    "bpnl": "BPNL00000003CSGV",
     "PlainObject" : [ {
       "BPN_OEM_C" : "BPNL00000003CML1",
       "BPN_OEM_A" : "BPNL00000003CSGV",
@@ -96,6 +97,7 @@
     } ]
   }, {
     "catenaXId" : "urn:uuid:1d2d8480-90a5-4a17-9ecb-2ff039d35fec",
+    "bpnl": "BPNL00000003AZQP",
     "urn:bamm:io.catenax.serial_part_typization:1.1.0#SerialPartTypization" : [ {
       "localIdentifiers" : [ {
         "value" : "BPNL00000003AZQP",
@@ -437,10 +439,10 @@
     } ]
   }, {
     "catenaXId" : "urn:uuid:6ec3f1db-2798-454b-a73f-0d21a8966c74",
-    "bpnl": "BPNL00000003CML1",
+    "bpnl": "BPNL00000003CNKC",
     "urn:bamm:io.catenax.serial_part_typization:1.1.0#SerialPartTypization" : [ {
       "localIdentifiers" : [ {
-        "value" : "BPNL00000003CML1",
+        "value" : "BPNL00000003CNKC",
         "key" : "manufacturerId"
       }, {
         "value" : "95657762-59",
@@ -1534,7 +1536,7 @@
     } ]
   }, {
     "catenaXId" : "urn:uuid:f6e5f058-fa5d-4abf-81e0-b468b7d62633",
-    "bpnl": "BPNL00000003CSGV",
+    "bpnl": "BPNL00000003CML1",
     "urn:bamm:io.catenax.assembly_part_relationship:1.1.1#AssemblyPartRelationship" : [ {
       "catenaXId" : "urn:uuid:f6e5f058-fa5d-4abf-81e0-b468b7d62633",
       "childParts" : [ {
@@ -1553,7 +1555,7 @@
     } ],
     "urn:bamm:io.catenax.serial_part_typization:1.1.0#SerialPartTypization" : [ {
       "localIdentifiers" : [ {
-        "value" : "BPNL00000003CSGV",
+        "value" : "BPNL00000003CML1",
         "key" : "manufacturerId"
       }, {
         "value" : "22782277-50",
