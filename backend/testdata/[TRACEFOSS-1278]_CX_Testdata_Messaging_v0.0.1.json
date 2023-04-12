@@ -3,9 +3,10 @@
     "catenaXId" : "urn:uuid:0fed587c-7ab4-4597-9841-1718e9693003",
     "bpnl": "BPNL00000003CSGV",
     "PlainObject" : [ {
-      "BPN_OEM_C" : "BPNL00000003CML1",
+      "BPN_TRACE_X_A" : "BPNL00000003CML1",
       "BPN_OEM_A" : "BPNL00000003CSGV",
       "BPN_OEM_B" : "BPNL00000003AZQP",
+      "BPN_TRACE_X_B" : "BPNL00000003CNKC",
       "CREATION_DATE" : "2023-04-11T10:20:51.079Z"
     } ]
   }, {
