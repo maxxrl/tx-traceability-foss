@@ -15,7 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [3.2.0] - 2023-04-17
 
 ### Added
--  Created BPN - BPN - EDC configuration page with mappings for notification flow (only frontend - currently disabled)
+- Created BPN - BPN - EDC configuration page with mappings for notification flow (only frontend - currently disabled)
 
 ### Changed
 - Refactored messageId of a notification to have own uuid instead of reusing notificationId
