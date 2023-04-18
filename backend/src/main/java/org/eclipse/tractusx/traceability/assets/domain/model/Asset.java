@@ -170,7 +170,11 @@ public final class Asset {
 		return underInvestigation;
 	}
 
-	public record ChildDescriptions(
+    public void setUnderInvestigation(boolean underInvestigation) {
+        this.underInvestigation = underInvestigation;
+    }
+
+    public record ChildDescriptions(
 		@ApiModelProperty(example = "urn:uuid:a4a26b9c-9460-4cc5-8645-85916b86adb0") String id,
 		@ApiModelProperty(example = "null") String idShort) {
 	}

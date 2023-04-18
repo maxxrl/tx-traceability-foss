@@ -30,7 +30,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import org.eclipse.tractusx.traceability.assets.domain.model.QualityType;
 import org.eclipse.tractusx.traceability.infrastructure.jpa.investigation.InvestigationEntity;
-import org.eclipse.tractusx.traceability.investigations.domain.model.InvestigationStatus;
+
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -55,6 +55,7 @@ public class AssetEntity {
     private boolean supplierPart;
     private QualityType qualityType;
     private String van;
+    private boolean inInvestigation;
 
     @ElementCollection
     @CollectionTable(name = "asset_child_descriptors")
@@ -70,7 +71,7 @@ public class AssetEntity {
                        String customerPartId, Instant manufacturingDate,
                        String manufacturingCountry, boolean supplierPart,
                        List<ChildDescription> childDescriptors, QualityType qualityType,
-                       String van) {
+                       String van, boolean inInvestigation) {
         this.id = id;
         this.idShort = idShort;
         this.nameAtManufacturer = nameAtManufacturer;
@@ -87,9 +88,18 @@ public class AssetEntity {
         this.childDescriptors = childDescriptors;
         this.qualityType = qualityType;
         this.van = van;
+        this.inInvestigation = inInvestigation;
     }
 
     public AssetEntity() {
+    }
+
+    public boolean isInInvestigation() {
+        return inInvestigation;
+    }
+
+    public void setInInvestigation(boolean inInvestigation) {
+        this.inInvestigation = inInvestigation;
     }
 
     public String getId() {
@@ -220,16 +230,6 @@ public class AssetEntity {
         this.investigations = investigations;
     }
 
-    public boolean isOnInvestigation() {
-        List<InvestigationEntity> investigationEntities = getInvestigations();
-
-        if (investigationEntities == null || investigationEntities.isEmpty()) {
-            return false;
-        }
-
-        return investigationEntities.stream()
-                .allMatch(investigation -> investigation.getStatus() != InvestigationStatus.CLOSED);
-    }
 
     public String getVan() {
         return van;

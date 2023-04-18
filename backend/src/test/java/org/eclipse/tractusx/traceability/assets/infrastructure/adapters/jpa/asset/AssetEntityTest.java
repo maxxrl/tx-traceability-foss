@@ -34,37 +34,5 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(MockitoExtension.class)
 class AssetEntityTest {
 
-    @Test
-    void testAssetIsNotUnderInvestigationWhenThereIsNoInvestigations() {
-        // given
-        AssetEntity assetEntity = new AssetEntity();
-        assetEntity.setInvestigations(null);
 
-        // expect
-        assertThat(assetEntity.isOnInvestigation()).isFalse();
-    }
-
-    @Test
-    void testAssetIsNotUnderInvestigationWhenInvestigationIsClosed() {
-        // given
-        AssetEntity assetEntity = new AssetEntity();
-        InvestigationEntity investigationEntity = new InvestigationEntity();
-        investigationEntity.setStatus(InvestigationStatus.CLOSED);
-        assetEntity.setInvestigations(List.of(investigationEntity));
-
-        // expect
-        assertThat(assetEntity.isOnInvestigation()).isFalse();
-    }
-
-    @Test
-    void testAssetIsOnInvestigation() {
-        // given
-        AssetEntity assetEntity = new AssetEntity();
-        InvestigationEntity investigationEntity = new InvestigationEntity();
-        investigationEntity.setStatus(InvestigationStatus.ACCEPTED);
-        assetEntity.setInvestigations(List.of(investigationEntity));
-
-        // expect
-        assertThat(assetEntity.isOnInvestigation()).isTrue();
-    }
 }

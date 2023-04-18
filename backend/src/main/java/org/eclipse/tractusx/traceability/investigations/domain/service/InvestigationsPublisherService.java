@@ -24,6 +24,7 @@ package org.eclipse.tractusx.traceability.investigations.domain.service;
 import org.eclipse.tractusx.traceability.assets.domain.model.Asset;
 import org.eclipse.tractusx.traceability.assets.domain.ports.AssetRepository;
 import org.eclipse.tractusx.traceability.assets.domain.ports.BpnRepository;
+import org.eclipse.tractusx.traceability.assets.domain.service.AssetService;
 import org.eclipse.tractusx.traceability.common.model.BPN;
 import org.eclipse.tractusx.traceability.investigations.domain.model.AffectedPart;
 import org.eclipse.tractusx.traceability.investigations.domain.model.Investigation;
@@ -56,7 +57,7 @@ public class InvestigationsPublisherService {
     private final NotificationsService notificationsService;
     private final InvestigationsRepository repository;
     private final InvestigationsReadService investigationsReadService;
-    private final AssetRepository assetRepository;
+    private final AssetService assetService;
 
     private final BpnRepository bpnRepository;
     private final Clock clock;
@@ -66,13 +67,12 @@ public class InvestigationsPublisherService {
     public InvestigationsPublisherService(NotificationsService notificationsService,
                                           InvestigationsRepository repository,
                                           InvestigationsReadService investigationsReadService,
-                                          AssetRepository assetRepository,
-                                          BpnRepository bpnRepository,
+                                          AssetService assetService, BpnRepository bpnRepository,
                                           Clock clock) {
         this.notificationsService = notificationsService;
         this.repository = repository;
         this.investigationsReadService = investigationsReadService;
-        this.assetRepository = assetRepository;
+        this.assetService = assetService;
         this.bpnRepository = bpnRepository;
         this.clock = clock;
     }
@@ -90,7 +90,7 @@ public class InvestigationsPublisherService {
     public InvestigationId startInvestigation(BPN applicationBpn, List<String> assetIds, String description, Instant targetDate, Severity severity) {
         Investigation investigation = Investigation.startInvestigation(clock.instant(), applicationBpn, description);
 
-        Map<String, List<Asset>> assetsByManufacturer = assetRepository.getAssetsById(assetIds).stream().collect(Collectors.groupingBy(Asset::getManufacturerId));
+        Map<String, List<Asset>> assetsByManufacturer = assetService.getAssetsById(assetIds).stream().collect(Collectors.groupingBy(Asset::getManufacturerId));
 
         assetsByManufacturer
                 .entrySet()
@@ -156,7 +156,11 @@ public class InvestigationsPublisherService {
         repository.update(investigation);
         // For each asset within investigation a notification was created before
         final boolean isInitialNotification = true;
-        investigation.getNotifications().forEach(notification -> notificationsService.asyncNotificationExecutor(notification, isInitialNotification));
+
+        investigation.getNotifications().forEach(notification -> {
+            notificationsService.asyncNotificationExecutor(notification, isInitialNotification);
+        });
+        assetService.setAssetsUnderInvestigation(investigation);
     }
 
     /**
@@ -191,6 +195,7 @@ public class InvestigationsPublisherService {
         repository.update(investigation);
         final boolean isInitialNotification = false;
         notificationsToSend.forEach(notification -> notificationsService.asyncNotificationExecutor(notification, isInitialNotification));
+        assetService.setAssetsUnderInvestigation(investigation);
     }
 
     private void validate(BPN applicationBpn, InvestigationStatus status, Investigation investigation) {

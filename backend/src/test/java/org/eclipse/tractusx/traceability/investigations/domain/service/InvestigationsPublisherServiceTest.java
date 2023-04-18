@@ -2,6 +2,7 @@ package org.eclipse.tractusx.traceability.investigations.domain.service;
 
 import org.eclipse.tractusx.traceability.assets.domain.ports.AssetRepository;
 import org.eclipse.tractusx.traceability.assets.domain.ports.BpnRepository;
+import org.eclipse.tractusx.traceability.assets.domain.service.AssetService;
 import org.eclipse.tractusx.traceability.common.model.BPN;
 import org.eclipse.tractusx.traceability.investigations.domain.model.AffectedPart;
 import org.eclipse.tractusx.traceability.investigations.domain.model.Investigation;
@@ -47,7 +48,7 @@ class InvestigationsPublisherServiceTest {
     @Mock
     private InvestigationsRepository repository;
     @Mock
-    private AssetRepository assetRepository;
+    private AssetService assetsService;
     @Mock
     private Clock clock;
     @Mock
@@ -62,7 +63,7 @@ class InvestigationsPublisherServiceTest {
     void testStartInvestigationSuccessful() {
         // Given
         Investigation investigation = InvestigationTestDataFactory.createInvestigationTestData(InvestigationStatus.ACKNOWLEDGED, InvestigationStatus.CLOSED, "bpn123");
-        when(assetRepository.getAssetsById(Arrays.asList("asset-1", "asset-2"))).thenReturn(List.of(AssetTestDataFactory.createAssetTestData()));
+        when(assetsService.getAssetsById(Arrays.asList("asset-1", "asset-2"))).thenReturn(List.of(AssetTestDataFactory.createAssetTestData()));
         when(repository.save(any(Investigation.class))).thenReturn(investigation.getId());
         when(bpnRepository.findManufacturerName(anyString())).thenReturn(Optional.empty());
 
@@ -72,7 +73,7 @@ class InvestigationsPublisherServiceTest {
                 Arrays.asList("asset-1", "asset-2"), "Test investigation", Instant.parse("2022-03-01T12:00:00Z"), Severity.MINOR);
 
         // Then
-        verify(assetRepository).getAssetsById(Arrays.asList("asset-1", "asset-2"));
+        verify(assetsService).getAssetsById(Arrays.asList("asset-1", "asset-2"));
         verify(repository).save(any(Investigation.class));
 
     }

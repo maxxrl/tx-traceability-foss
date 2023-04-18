@@ -54,7 +54,8 @@ trait AssetsSupport implements AssetRepositoryProvider, InvestigationsRepository
                             .map(child -> new AssetEntity.ChildDescription(child.id(), child.idShort()))
                             .toList(),
                     asset.getQualityType(),
-                    asset.getVan()
+                    asset.getVan(),
+                    asset.isUnderInvestigation()
             )
         }
 

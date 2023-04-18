@@ -26,6 +26,8 @@ import org.eclipse.tractusx.traceability.assets.domain.model.QualityType;
 import org.eclipse.tractusx.traceability.assets.domain.ports.AssetRepository;
 import org.eclipse.tractusx.traceability.assets.domain.ports.IrsRepository;
 import org.eclipse.tractusx.traceability.assets.infrastructure.config.async.AssetsAsyncConfig;
+import org.eclipse.tractusx.traceability.investigations.domain.model.Investigation;
+import org.eclipse.tractusx.traceability.investigations.domain.model.InvestigationStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
@@ -37,57 +39,71 @@ import java.util.stream.Collectors;
 
 @Component
 public class AssetService {
-	private static final Logger logger = LoggerFactory.getLogger(AssetService.class);
+    private static final Logger logger = LoggerFactory.getLogger(AssetService.class);
 
-	private final AssetRepository assetRepository;
-	private final IrsRepository irsRepository;
+    private final AssetRepository assetRepository;
+    private final IrsRepository irsRepository;
 
-	public AssetService(AssetRepository assetRepository, IrsRepository irsRepository) {
-		this.assetRepository = assetRepository;
-		this.irsRepository = irsRepository;
-	}
+    public AssetService(AssetRepository assetRepository, IrsRepository irsRepository) {
+        this.assetRepository = assetRepository;
+        this.irsRepository = irsRepository;
+    }
 
-	public void synchronizeAssets(List<String> globalAssetIds) {
-		for (String globalAssetId : globalAssetIds) {
-			try {
-				synchronizeAssets(globalAssetId);
-			} catch (Exception e) {
-				logger.warn("Cannot fetch assets for id: {}. Error: {}", globalAssetId, e.getMessage());
-			}
-		}
-	}
+    public void synchronizeAssets(List<String> globalAssetIds) {
+        for (String globalAssetId : globalAssetIds) {
+            try {
+                synchronizeAssets(globalAssetId);
+            } catch (Exception e) {
+                logger.warn("Cannot fetch assets for id: {}. Error: {}", globalAssetId, e.getMessage());
+            }
+        }
+    }
 
-	@Async(value = AssetsAsyncConfig.SYNCHRONIZE_ASSETS_EXECUTOR)
-	public void synchronizeAssets(String globalAssetId) {
-		logger.info("Synchronizing assets for globalAssetId: {}", globalAssetId);
+    @Async(value = AssetsAsyncConfig.SYNCHRONIZE_ASSETS_EXECUTOR)
+    public void synchronizeAssets(String globalAssetId) {
+        logger.info("Synchronizing assets for globalAssetId: {}", globalAssetId);
 
-		try {
-			List<Asset> assets = irsRepository.findAssets(globalAssetId);
+        try {
+            List<Asset> assets = irsRepository.findAssets(globalAssetId);
 
-			logger.info("Assets synchronization for globalAssetId: {} is done. Found {} assets. Saving them in the repository.", globalAssetId, assets.size());
+            logger.info("Assets synchronization for globalAssetId: {} is done. Found {} assets. Saving them in the repository.", globalAssetId, assets.size());
 
-			assetRepository.saveAll(assets);
+            assetRepository.saveAll(assets);
 
-			logger.info("Assets for globalAssetId {} successfully saved.", globalAssetId);
-		} catch (Exception e) {
-			logger.warn("Exception during assets synchronization for globalAssetId: {}. Message: {}.", globalAssetId, e.getMessage(), e);
-		}
-	}
+            logger.info("Assets for globalAssetId {} successfully saved.", globalAssetId);
+        } catch (Exception e) {
+            logger.warn("Exception during assets synchronization for globalAssetId: {}. Message: {}.", globalAssetId, e.getMessage(), e);
+        }
+    }
 
-	public Asset updateQualityType(String assetId, QualityType qualityType) {
-		Asset foundAsset = assetRepository.getAssetById(assetId);
+    public Asset updateQualityType(String assetId, QualityType qualityType) {
+        Asset foundAsset = assetRepository.getAssetById(assetId);
 
-		foundAsset.updateQualityType(qualityType);
+        foundAsset.updateQualityType(qualityType);
 
-		return assetRepository.save(foundAsset);
-	}
+        return assetRepository.save(foundAsset);
+    }
 
-	public Map<String, Long> getAssetsCountryMap() {
-		return assetRepository.getAssets().stream()
-			.collect(Collectors.groupingBy(Asset::getManufacturingCountry, Collectors.counting()));
-	}
+    public Map<String, Long> getAssetsCountryMap() {
+        return assetRepository.getAssets().stream()
+                .collect(Collectors.groupingBy(Asset::getManufacturingCountry, Collectors.counting()));
+    }
 
-	public void saveAssets(List<Asset> assets) {
-		assetRepository.saveAll(assets);
-	}
+    public void saveAssets(List<Asset> assets) {
+        assetRepository.saveAll(assets);
+    }
+
+    public List<Asset> getAssetsById(List<String> assetIds) {
+        return assetRepository.getAssetsById(assetIds);
+    }
+
+    public void setAssetsUnderInvestigation(Investigation investigation) {
+        assetRepository.getAssetsById(investigation.getAssetIds()).forEach(asset -> {
+            // Assets in status closed will be false, others true
+            asset.setUnderInvestigation(!investigation.getInvestigationStatus().equals(InvestigationStatus.CLOSED));
+            assetRepository.save(asset);
+        });
+
+    }
+
 }
