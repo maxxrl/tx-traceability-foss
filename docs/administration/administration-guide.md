@@ -211,7 +211,7 @@ The OAuth2, Vault configuration / secrets depend on your setup and might need to
       fullnameOverride: "traceability-foss-backend"
 
       podSecurityContext:
-        runAsUser: 10001
+        runAsUser: 10000
         seccompProfile:
           type: RuntimeDefault
 
@@ -220,8 +220,8 @@ The OAuth2, Vault configuration / secrets depend on your setup and might need to
       securityContext:
         allowPrivilegeEscalation: false
         runAsNonRoot: true
-        runAsUser: 10001
-        runAsGroup: 3000
+        runAsUser: 10000
+        runAsGroup: 1000
         capabilities:
           drop:
             - ALL
@@ -476,4 +476,4 @@ Troubleshooting
 
 Coming soon…​
 
-Last updated 2023-04-13 06:39:20 UTC
+Last updated 2023-04-21 09:11:15 UTC
