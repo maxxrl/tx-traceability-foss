@@ -23,6 +23,39 @@ entries:
     version: 0.1.0
   traceability-foss:
   - apiVersion: v2
+    appVersion: 3.3.0
+    created: "2023-05-02T07:51:41.930786127Z"
+    dependencies:
+    - name: frontend
+      repository: file://charts/frontend
+      version: 1.3.4
+    - name: backend
+      repository: file://charts/backend
+      version: 1.3.4
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.x.x
+    - condition: pgadmin4.enabled
+      name: pgadmin4
+      repository: https://helm.runix.net
+      version: 1.13.6
+    - condition: irs-helm.enabled
+      name: irs-helm
+      repository: https://eclipse-tractusx.github.io/item-relationship-service
+      version: 5.0.9
+    - condition: irs-edc-consumer.enabled
+      name: irs-edc-consumer
+      repository: https://eclipse-tractusx.github.io/item-relationship-service
+      version: 1.1.2
+    description: An umbrella Helm chart for eclipse-tractusx/traceability-foss project
+    digest: 6d3eb17320b217b643f24b282c7995d13933d39e3e8a3afbfe18e0e92e2bbd63
+    name: traceability-foss
+    type: application
+    urls:
+    - https://github.com/catenax-ng/tx-traceability-foss/releases/download/helm-charts-1.3.4/traceability-foss-1.3.4.tgz
+    version: 1.3.4
+  - apiVersion: v2
     appVersion: 3.2.0
     created: "2023-04-17T13:52:59.876165866Z"
     dependencies:
@@ -160,4 +193,4 @@ entries:
     urls:
     - https://github.com/catenax-ng/tx-traceability-foss/releases/download/traceability-foss-frontend-1.1.4/traceability-foss-frontend-1.1.4.tgz
     version: 1.1.4
-generated: "2023-04-17T13:52:59.876198266Z"
+generated: "2023-05-02T07:51:41.930839627Z"
