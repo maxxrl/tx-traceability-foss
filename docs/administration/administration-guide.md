@@ -136,8 +136,6 @@ The OAuth2, Vault configuration / secrets depend on your setup and might need to
 
 #### Helm configuration Trace-X Backend (values.yaml)
 
-                    - key: app.kubernetes.io/name
-                      operator: DoesNotExist
                 topologyKey: kubernetes.io/hostname
 
       ingress:
@@ -176,6 +174,8 @@ The OAuth2, Vault configuration / secrets depend on your setup and might need to
         repository: ghcr.io/catenax-ng/tx-traceability-foss
         pullPolicy: Always
 
+      springprofile: dev  # will be set as dev
+
       ##
       ## Image pull secret to create to obtain the container image
       ## Note: 'imagePullSecret.dockerconfigjson' takes precedence if configured together with 'imagePullSecrets'
@@ -202,10 +202,9 @@ The OAuth2, Vault configuration / secrets depend on your setup and might need to
         ## If not set and create is true, a name is generated using the fullname template
         ##
         name: ""
+      ## dd
 
-      podAnnotations: { }
-
-      springprofile: dev #will be set as dev
+      podAnnotations: {}
 
       nameOverride: "traceability-foss-backend"
       fullnameOverride: "traceability-foss-backend"
@@ -280,39 +279,66 @@ The OAuth2, Vault configuration / secrets depend on your setup and might need to
         enabled: false
         className: ""
         annotations: {}
-        hosts: []
-        tls: []
+        hosts:
+          - "https://replace.me"
+        tls:
+          - hosts:
+              - "https://replace.me"
+            secretName: tls-secret
 
       healthCheck:
-        enabled: true #<healthCheck.enabled>
+        enabled: false  # <healthCheck.enabled>
 
       traceability:
-        bpn: "CHANGEME" #<traceability.bpn>
-        url: "" #<traceability.url>
+        bpn: "CHANGEME"  # <traceability.bpn>
+        url: ""  # <traceability.url>
 
       datasource:
-        url: jdbc:postgresql://tracex-backend-postgresql:5432/trace
-        username: trace
-        password: "CHANGEME" #<datasource.password>
+        url: jdbc:postgresql://traceability-foss-backend-postgresql:5432/trace
+        username: "traceuser"
+        password: "CHANGEME"  # <datasource.password>
 
       oauth2:
-        clientId: "CHANGEME" #<oauth2.clientId>
-        clientSecret: "CHANGEME" #<oauth2.clientSecret>
-        clientTokenUri: "https://changeme.com" #<oauth2.clientTokenUri>
-        jwkSetUri: "https://changeme.com" #<oauth2.jwkSetUri>
-        resourceClient: "CHANGEME" #<oauth2.resourceClient>
+        clientId: "CHANGEME"  # <oauth2.clientId>
+        clientSecret: "CHANGEME"  # <oauth2.clientSecret>
+        clientTokenUri: "https://changeme.com"  # <oauth2.clientTokenUri>
+        jwkSetUri: "https://changeme.com"  # <oauth2.jwkSetUri>
+        resourceClient: "CHANGEME"  # <oauth2.resourceClient>
 
       edc:
-        apiKey: "" #<edc.apiKey>
-        providerUrl: "" #<edc.providerUrl>
+        apiKey: ""  # <edc.apiKey>
+        providerUrl: ""  # <edc.providerUrl>
+        dataplane:
+          url: "https://replace.me"
+        controlplane:
+          url: "https://example.com"
+
+        edc-dataplane:
+          ingresses:
+            - enabled: false
+              annotations: {}
+              className: ""
+              tls:
+                - hosts:
+                    - "https://replace.me"
+                  secretName: tls-secret
+
 
     #########################
     # PG Admin configuration     #
     #########################
     pgadmin4:
-      enabled: false #<pgadmin4.enabled>
+      enabled: false  # <pgadmin4.enabled>
       ingress:
-        enabled: false  #<pgadmin4.ingress.enabled>
+        enabled: false   # <pgadmin4.ingress.enabled>
+
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 1Gi
+        requests:
+          cpu: 256m
+          memory: 512Mi
 
     #########################
     # Postgres configuration     #
@@ -320,26 +346,26 @@ The OAuth2, Vault configuration / secrets depend on your setup and might need to
     postgresql:
       enabled: true
 
-      nameOverride: "tracex-backend-postgresql"
-      fullnameOverride: "tracex-backend-postgresql"
+      nameOverride: "traceability-foss-backend-postgresql"
+      fullnameOverride: "traceability-foss-backend-postgresql"
 
       auth:
-        postgresPassword: "CHANGEME" #<postgresql.auth.postgresPassword>
-        password: "CHANGEME" #postgresql.auth.password>
+        postgresPassword: "CHANGEME"
+        password: "CHANGEME"
         database: "trace"
-        username: "trace"
+        username: "traceuser"
 
     #########################
     # IRS configuration     #
     #########################
     irs-helm:
-      enabled: false #<irs-helm.enabled>
+      enabled: false  # <irs-helm.enabled>
 
     ###################################
     # IRS EDC Consumer configuration  #
     ###################################
     irs-edc-consumer:
-      enabled: false #<irs-edc-consumer.enabled>
+      enabled: false  # <irs-edc-consumer.enabled>
 
 ##### Values explained
 
@@ -476,4 +502,4 @@ Troubleshooting
 
 Coming soon…​
 
-Last updated 2023-04-21 09:11:15 UTC
+Last updated 2023-05-03 10:39:15 UTC
