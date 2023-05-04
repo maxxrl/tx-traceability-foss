@@ -25,6 +25,7 @@ import { I18NEXT_NAMESPACE_RESOLVER } from 'angular-i18next';
 import { ScheduledRegistryProcessesComponent } from '@page/admin/presentation/scheduled-registry-processes/scheduled-registry-processes.component';
 import { KnownAdminRouts } from '@page/admin/core/admin.model';
 import { BpnConfigurationComponent } from '@page/admin/presentation/bpn-configuration/bpn-configuration.component';
+import { RoleGuard } from '@core/user/role.guard';
 
 export /** @type {*} */
 const ADMIN_ROUTING: Routes = [
@@ -46,6 +47,7 @@ const ADMIN_ROUTING: Routes = [
     component: BpnConfigurationComponent,
     data: { i18nextNamespaces: ['page.admin'] },
     resolve: { i18next: I18NEXT_NAMESPACE_RESOLVER },
+    canActivate: [RoleGuard],
   },
 ];
 

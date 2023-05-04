@@ -43,19 +43,6 @@ A detailed guide on how to contribute can be found [here](https://github.com/ecl
 ## Releasing
 Here is our [Releasing guide](https://github.com/eclipse-tractusx/traceability-foss/blob/main/docs/RELEASE.md).
 
-## Environments
-### Frontend
-- https://traceability-portal.dev.demo.catena-x.net
-- https://traceability-portal-test.dev.demo.catena-x.net
-- https://traceability-portal.int.demo.catena-x.net
-- https://traceability-portal.beta.demo.catena-x.net
-- https://traceability-pen.dev.demo.catena-x.net
-### Backend
-- https://traceability.dev.demo.catena-x.net/api/swagger-ui/index.html#
-- https://traceability-test.dev.demo.catena-x.net/api/swagger-ui/index.html#
-- https://traceability.int.demo.catena-x.net/api/swagger-ui/index.html#
-- https://traceability.beta.demo.catena-x.net/api/swagger-ui/index.html#
-- https://traceability-pen.dev.demo.catena-x.net/api/swagger-ui/index.html#
 ## The frontend application
 
 This application serves as a user entry point to the Catena-X network.
@@ -127,7 +114,7 @@ A detailed [explanation](https://github.com/eclipse-tractusx/traceability-foss/b
 
 ### Backend Installation
 
-* see [Installation guide](https://github.com/eclipse-tractusx/traceability-foss/blob/main/backend/INSTALL.md)
+* see [Installation guide](https://github.com/eclipse-tractusx/traceability-foss/blob/main/tx-backend/INSTALL.md)
 
 ### Running tests
 
@@ -161,7 +148,7 @@ mvn -DskipTests=false clean verify -PiT
 *Please note that this task depends on `integrationTest` task, so it's required to have [Docker Engine](https://docs.docker.com/engine/) running.*
 
 ## API documentation
-The project follows [OpenAPI Specification](https://swagger.io/specification/) in order to document implemented REST Endpoints. The documentation can be found under [/openapi directory](./backend/openapi/traceability-foss-backend.json)
+The project follows [OpenAPI Specification](https://swagger.io/specification/) in order to document implemented REST Endpoints. The documentation can be found under [/openapi directory](https://github.com/eclipse-tractusx/traceability-foss/blob/main/tx-backend/openapi/traceability-foss-backend.json)
 or can be viewed in the Swagger UI accessing the url: `{projectBasePath}/api/swagger-ui/index.html`
 
 ## Container image

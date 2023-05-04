@@ -22,6 +22,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { Role } from '@core/user/role.model';
 
 @Component({
   selector: 'app-admin',
@@ -30,7 +31,12 @@ import { filter } from 'rxjs/operators';
 })
 export class AdminComponent {
   public activeUrl: string;
-  public menuConfig = [
+  public menuConfig: {
+    name: string;
+    icon: string;
+    link: string;
+    role?: Role;
+  }[] = [
     {
       name: 'routing.adminRegistry',
       icon: 'storage',

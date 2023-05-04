@@ -92,6 +92,7 @@ describe('PartsAssembler', () => {
           qualityType: QualityType.Ok,
           productionDate: new CalendarDateModel(manufacturingDate),
           children: childDescriptions.map(child => child.id),
+          parents: [],
           shouldHighlight: false,
           van,
         });
@@ -173,23 +174,6 @@ describe('PartsAssembler', () => {
           expect(result).toEqual(viewData);
           done();
         });
-    });
-  });
-
-  describe('assembleAssetsCountryMap', () => {
-    it('should handle invalid values', () => {
-      expect(PartsAssembler.assembleAssetsCountryMap(null)).toBe(null);
-      expect(PartsAssembler.assembleAssetsCountryMap(undefined)).toBe(null);
-    });
-
-    it('should return country map', () => {
-      expect(
-        PartsAssembler.assembleAssetsCountryMap({
-          DEU: 100,
-        }),
-      ).toEqual({
-        DEU: 100,
-      });
     });
   });
 });

@@ -5,9 +5,51 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased - x.x.x]
+### Changed
+- Added logic to push image to docker hub for eclipse-tractusx repository
+## [3.3.0] - 2023-05-02
+### Added
+- Added tx-root pom for maven multi module project
+- Added tx-parent-spring-boot for using spring boot dependencies
+- Added tx-models
+- Added possibility to configure realm in FE
+- Added license headers to helm chart files
+- Added possibility to create an alert within my parts page, marked with WIP
+- Added additional irs request on irs-service to also include SingleLevelUsageAsBuilt param
+- Added owner column to asset table
+- Added upstream visibility for parts
+- Added bpn-url mapping api which provides simple CRUD operations
+- Added project lombok
+- Added Dockerfile to root directory
+- Added helm-test workflow
+
+### Changed
+- Updated spring-boot:core from 6.0.6 to 6.0.8 for cve-2023-20863
+- backend directory and module to tx-backend
+- backend/cucumber-tests directory to tx-cucumber-tests
+- Updated mapping of assets
+- Alignment of user and groups between helmchart and application
+- Updated readme links
+- Container labelling refactored
+- Increased table size tenfold. From 5, 10, 25 to 50, 100, 250
+- Moved dash-ip tool to root-pom to have a managed version
+- Updated backend dependencies to reflect current state
+- Updated notifications contract policy to include trace policy constraint
+- Switched from GET catalog (edc) to POST catalog
+- Moved Investigation JPA implementation to the correct folder structure
+- Moved Notification JPA implementation to the correct folder structure
+- Fixed bug to reflect investigation status on assets
+
+### Removed
+- Removed usage of add-license-header script in FE hook
+- Removed usage of map and map component
+- Removed supplierPart boolean from asset
+- Removed all excluded files from kics scan
+
+## [3.2.0] - 2023-04-17
 
 ### Added
-
+- Created BPN - BPN - EDC configuration page with mappings for notification flow
 
 ### Changed
 - Refactored messageId of a notification to have own uuid instead of reusing notificationId
@@ -16,6 +58,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Updated cypress-io/github-action from 5.6.0 to 5.6.1
 - Updated peaceiris/actions-gh-pages from 3.9.2 to 3.9.3
 - Upgraded base image from sha256@2b33ef284e6dc43a61903cef6d36dbce13414a9e5444e2c96cdd5e35123f9903 to: sha256@c26a727c4883eb73d32351be8bacb3e70f390c2c94f078dc493495ed93c60c2f
+- Fixed parts not being marked as under investigation
+- Adapt notification receiver side to accept severity by real name instead of enum constant
+- Improved admin page navigation (as a left side menu)
+- Combined results of discovery service and fallback mock service to provide bpn url mappings
+- Updated EDC Provider to 0.3.0 version
 
 ## [3.1.1] - 2023-04-04
 
