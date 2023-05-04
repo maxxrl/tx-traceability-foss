@@ -58,7 +58,7 @@ dependencies:
   - name: traceability-foss
     alias: traceability-foss
     version: x.x.x
-    repository: "https://eclipse-tractusx.github.io/traceability-foss/"
+    repository: "<https://eclipse-tractusx.github.io/traceability-foss/">
 
 Then provide your configuration as the values.yaml of that chart.
 
@@ -261,10 +261,10 @@ backend:
     className: ""
     annotations: {}
     hosts:
-      - "https://replace.me"
+      - "<https://replace.me">
     tls:
       - hosts:
-          - "https://replace.me"
+          - "<https://replace.me">
         secretName: tls-secret
 
   healthCheck:
@@ -282,17 +282,17 @@ backend:
   oauth2:
     clientId: "CHANGEME"  # <oauth2.clientId>
     clientSecret: "CHANGEME"  # <oauth2.clientSecret>
-    clientTokenUri: "https://changeme.com"  # <oauth2.clientTokenUri>
-    jwkSetUri: "https://changeme.com"  # <oauth2.jwkSetUri>
+    clientTokenUri: "<https://changeme.com">  # <oauth2.clientTokenUri>
+    jwkSetUri: "<https://changeme.com">  # <oauth2.jwkSetUri>
     resourceClient: "CHANGEME"  # <oauth2.resourceClient>
 
   edc:
     apiKey: ""  # <edc.apiKey>
     providerUrl: ""  # <edc.providerUrl>
     dataplane:
-      url: "https://replace.me"
+      url: "<https://replace.me">
     controlplane:
-      url: "https://example.com"
+      url: "<https://example.com">
 
     edc-dataplane:
       ingresses:
@@ -301,7 +301,7 @@ backend:
           className: ""
           tls:
             - hosts:
-                - "https://replace.me"
+                - "<https://replace.me">
               secretName: tls-secret
 
 
