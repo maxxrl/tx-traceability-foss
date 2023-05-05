@@ -95,7 +95,23 @@
         "nameAtManufacturer" : "Door f-l",
         "nameAtCustomer" : "Door front-left"
       }
-    } ]
+    } ],
+    "urn:bamm:io.catenax.single_level_usage_as_built:1.0.1#SingleLevelUsageAsBuilt": [
+      {
+        "parentParts": [
+          {
+            "parentCatenaXId": "urn:uuid:6b2296cc-26c0-4f38-8a22-092338c36e22",
+            "quantity": {
+              "quantityNumber": 1,
+              "measurementUnit": "unit:piece"
+            },
+            "createdOn": "2023-02-03T14:48:54.709Z",
+            "lastModifiedOn": "2023-02-03T14:48:54.709Z"
+          }
+        ],
+        "catenaXId": "urn:uuid:7eeeac86-7b69-444d-81e6-655d0f1513bd"
+      }
+    ]
   }, {
     "catenaXId" : "urn:uuid:1d2d8480-90a5-4a17-9ecb-2ff039d35fec",
     "bpnl" : "BPNL00000003CML1",
@@ -122,8 +138,27 @@
         "nameAtManufacturer" : "Door Key",
         "nameAtCustomer" : "Door Key"
       }
-    } ]
-  }, {
+    } ],
+    "urn:bamm:io.catenax.single_level_usage_as_built:1.0.1#SingleLevelUsageAsBuilt": [
+      {
+        "parentParts": [
+          {
+            "parentCatenaXId": "urn:uuid:7eeeac86-7b69-444d-81e6-655d0f1513bd",
+            "quantity": {
+              "quantityNumber": 1,
+              "measurementUnit": "unit:piece"
+            },
+            "createdOn": "2023-02-03T14:48:54.709Z",
+            "lastModifiedOn": "2023-02-03T14:48:54.709Z"
+          }
+        ],
+        "catenaXId": "urn:uuid:1d2d8480-90a5-4a17-9ecb-2ff039d35fec"
+      }
+    ]
+  },
+
+
+    {
     "catenaXId" : "urn:uuid:d8030bbf-a874-49fb-b2e1-7610f0ccad12",
     "bpnl" : "BPNL00000003CSGV",
     "urn:bamm:io.catenax.assembly_part_relationship:1.1.0#AssemblyPartRelationship" : [ {
@@ -209,7 +244,23 @@
         "nameAtManufacturer" : "Door f-l",
         "nameAtCustomer" : "Door front-left"
       }
-    } ]
+    } ],
+    "urn:bamm:io.catenax.single_level_usage_as_built:1.0.1#SingleLevelUsageAsBuilt": [
+      {
+        "parentParts": [
+          {
+            "parentCatenaXId": "urn:uuid:d8030bbf-a874-49fb-b2e1-7610f0ccad12",
+            "quantity": {
+              "quantityNumber": 1,
+              "measurementUnit": "unit:piece"
+            },
+            "createdOn": "2023-02-03T14:48:54.709Z",
+            "lastModifiedOn": "2023-02-03T14:48:54.709Z"
+          }
+        ],
+        "catenaXId": "urn:uuid:5205f736-8fc2-4585-b869-6bf36842369a"
+      }
+    ]
   }, {
     "catenaXId" : "urn:uuid:4e390dab-707f-446e-bfbe-653f6f5b1f37",
     "bpnl" : "BPNL00000003AZQP",
@@ -236,8 +287,27 @@
         "nameAtManufacturer" : "Door Key",
         "nameAtCustomer" : "Door Key"
       }
-    } ]
-  }, {
+    } ],
+    "urn:bamm:io.catenax.single_level_usage_as_built:1.0.1#SingleLevelUsageAsBuilt": [
+      {
+        "parentParts": [
+          {
+            "parentCatenaXId": "urn:uuid:5205f736-8fc2-4585-b869-6bf36842369a",
+            "quantity": {
+              "quantityNumber": 1,
+              "measurementUnit": "unit:piece"
+            },
+            "createdOn": "2023-02-03T14:48:54.709Z",
+            "lastModifiedOn": "2023-02-03T14:48:54.709Z"
+          }
+        ],
+        "catenaXId": "urn:uuid:4e390dab-707f-446e-bfbe-653f6f5b1f37"
+      }
+    ]
+  },
+
+
+    {
     "catenaXId" : "urn:uuid:7c7d5aec-b15d-491c-8fbd-c61c6c02c69a",
     "bpnl" : "BPNL00000003CSGV",
     "urn:bamm:io.catenax.assembly_part_relationship:1.1.0#AssemblyPartRelationship" : [ {
@@ -323,7 +393,23 @@
         "nameAtManufacturer" : "Door f-l",
         "nameAtCustomer" : "Door front-left"
       }
-    } ]
+    } ],
+    "urn:bamm:io.catenax.single_level_usage_as_built:1.0.1#SingleLevelUsageAsBuilt": [
+      {
+        "parentParts": [
+          {
+            "parentCatenaXId": "urn:uuid:7c7d5aec-b15d-491c-8fbd-c61c6c02c69a",
+            "quantity": {
+              "quantityNumber": 1,
+              "measurementUnit": "unit:piece"
+            },
+            "createdOn": "2023-02-03T14:48:54.709Z",
+            "lastModifiedOn": "2023-02-03T14:48:54.709Z"
+          }
+        ],
+        "catenaXId": "urn:uuid:f11ddc62-3bd5-468f-b7b0-110fe13ed0cd"
+      }
+    ]
   }, {
     "catenaXId" : "urn:uuid:4a5e9ff6-2d5c-4510-a90e-d55af3ba502f",
     "bpnl" : "BPNL00000003AZQP",
@@ -350,8 +436,27 @@
         "nameAtManufacturer" : "Door Key",
         "nameAtCustomer" : "Door Key"
       }
-    } ]
-  }, {
+    } ],
+      "urn:bamm:io.catenax.single_level_usage_as_built:1.0.1#SingleLevelUsageAsBuilt": [
+        {
+          "parentParts": [
+            {
+              "parentCatenaXId": "urn:uuid:f11ddc62-3bd5-468f-b7b0-110fe13ed0cd",
+              "quantity": {
+                "quantityNumber": 1,
+                "measurementUnit": "unit:piece"
+              },
+              "createdOn": "2023-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2023-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:4a5e9ff6-2d5c-4510-a90e-d55af3ba502f"
+        }
+      ]
+    },
+
+
+    {
     "catenaXId" : "urn:uuid:4d33bfa6-0f1f-43a5-ad63-c3fe07a2d076",
     "bpnl" : "BPNL00000003CSGV",
     "urn:bamm:io.catenax.assembly_part_relationship:1.1.0#AssemblyPartRelationship" : [ {
@@ -395,7 +500,7 @@
         "nameAtManufacturer" : "Vehicle Hybrid"
       }
     } ]
-  }, {
+    }, {
     "catenaXId" : "urn:uuid:c47b9f8b-48d0-4ef4-8f0b-e965a225cb8d",
     "bpnl" : "BPNL00000003CML1",
     "urn:bamm:io.catenax.assembly_part_relationship:1.1.0#AssemblyPartRelationship" : [ {
@@ -437,8 +542,24 @@
         "nameAtManufacturer" : "Door f-l",
         "nameAtCustomer" : "Door front-left"
       }
-    } ]
-  }, {
+    } ],
+      "urn:bamm:io.catenax.single_level_usage_as_built:1.0.1#SingleLevelUsageAsBuilt": [
+        {
+          "parentParts": [
+            {
+              "parentCatenaXId": "urn:uuid:4d33bfa6-0f1f-43a5-ad63-c3fe07a2d076",
+              "quantity": {
+                "quantityNumber": 1,
+                "measurementUnit": "unit:piece"
+              },
+              "createdOn": "2023-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2023-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:c47b9f8b-48d0-4ef4-8f0b-e965a225cb8d"
+        }
+      ]
+    }, {
     "catenaXId" : "urn:uuid:6ec3f1db-2798-454b-a73f-0d21a8966c74",
     "bpnl" : "BPNL00000003CNKC",
     "urn:bamm:io.catenax.serial_part_typization:1.1.0#SerialPartTypization" : [ {
@@ -464,8 +585,26 @@
         "nameAtManufacturer" : "Door Key",
         "nameAtCustomer" : "Door Key"
       }
-    } ]
-  }, {
+    } ],
+    "urn:bamm:io.catenax.single_level_usage_as_built:1.0.1#SingleLevelUsageAsBuilt": [
+        {
+          "parentParts": [
+            {
+              "parentCatenaXId": "urn:uuid:c47b9f8b-48d0-4ef4-8f0b-e965a225cb8d",
+              "quantity": {
+                "quantityNumber": 1,
+                "measurementUnit": "unit:piece"
+              },
+              "createdOn": "2023-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2023-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:6ec3f1db-2798-454b-a73f-0d21a8966c74"
+        }
+      ]
+    },
+
+    {
     "catenaXId" : "urn:uuid:1be6ec59-40fb-4993-9836-acb0e284b170",
     "bpnl" : "BPNL00000003CSGV",
     "urn:bamm:io.catenax.batch:1.0.0#Batch" : [ {
@@ -491,338 +630,22 @@
         "nameAtManufacturer" : "Door Key",
         "nameAtCustomer" : "Door Key"
       }
+    } ],
+      "urn:bamm:io.catenax.single_level_usage_as_built:1.0.1#SingleLevelUsageAsBuilt": [
+        {
+          "parentParts": [
+            {
+              "parentCatenaXId": "urn:uuid:6ec3f1db-2798-454b-a73f-0d21a8966c74",
+              "quantity": {
+                "quantityNumber": 1,
+                "measurementUnit": "unit:piece"
+              },
+              "createdOn": "2023-02-03T14:48:54.709Z",
+              "lastModifiedOn": "2023-02-03T14:48:54.709Z"
+            }
+          ],
+          "catenaXId": "urn:uuid:1be6ec59-40fb-4993-9836-acb0e284b170"
+        }
+      ]
     } ]
-  } ],
-  "https://catenax.io/schema/VehicleBlueprint/1.0.0" : [ {
-    "parent" : {
-      "include" : [ ],
-      "code" : [ ],
-      "useId" : false,
-      "modelVersion" : "",
-      "values" : {
-        "BPN_OEM_C" : "BPNL00000003CML1",
-        "BPN_OEM_A" : "BPNL00000003CSGV",
-        "BPN_OEM_B" : "BPNL00000003AZQP",
-        "CREATION_DATE" : "2022-09-26T12:43:51.079Z",
-        "AUTHOR" : "christian.kabelin@ventum.de"
-      },
-      "count" : 1,
-      "nodeType" : "PARENT",
-      "modelName" : "",
-      "instanceId" : "CONST",
-      "templateName" : "",
-      "children" : [ {
-        "include" : [ ],
-        "code" : [ ],
-        "useId" : true,
-        "modelVersion" : "1.0.0",
-        "values" : {
-          "localIdentifiers[2].value" : "!var id = rand.getPattern('AAAAAAAAAAAAAA') ;if (vehicleItem.var('oem')==BPN_OEM_A) { 'OMA'+id } else if (vehicleItem.var('oem')==BPN_OEM_B) { 'OMB' +id} else { 'OMC'+id }",
-          "localIdentifiers[1].value" : "$partTypeInformation.manufacturerPartId",
-          "localIdentifiers[0].value" : "!var val = BPN_OEM_A;vehicleItem.var('oem', val);val",
-          "partTypeInformation.manufacturerPartId" : "!rand.getPattern('CC/-99')",
-          "localIdentifiers[3].value" : "$localIdentifiers[2].value",
-          "manufacturingInformation.date" : "!rand.formatDate(rand.getDateBetween(rand.getDate(2012, 11, 16), rand.getDate(2020, 12, 31)))"
-        },
-        "count" : 10,
-        "nodeType" : "PARENT",
-        "modelName" : "SerialPartTypization",
-        "instanceId" : "",
-        "templateName" : "spt_vehicle_hybrid",
-        "children" : [ {
-          "include" : [ {
-            "code" : [ ],
-            "values" : { },
-            "name" : "MessagingTestOEMADoorLeft",
-            "count" : 1,
-            "version" : "1.0"
-          } ],
-          "code" : [ "vehicleItem.replaceAprChildren(item, subparents);" ],
-          "useId" : true,
-          "modelVersion" : "1.0.0",
-          "values" : { },
-          "count" : 1,
-          "nodeType" : "CHILD",
-          "modelName" : "AssemblyPartRelationship",
-          "instanceId" : "",
-          "templateName" : "apr",
-          "children" : [ {
-            "include" : [ ],
-            "code" : [ ],
-            "useId" : true,
-            "modelVersion" : "1.0.0",
-            "values" : {
-              "localIdentifiers[2].value" : "!rand.getPattern('/N/O/-999999999999999999999999')",
-              "localIdentifiers[0].value" : "!rand.getAny(BPN_OEM_B, BPN_OEM_C)"
-            },
-            "count" : 1,
-            "nodeType" : "PARENT",
-            "modelName" : "SerialPartTypization",
-            "instanceId" : "",
-            "templateName" : "spt_door_front_left",
-            "children" : [ {
-              "include" : [ {
-                "code" : [ ],
-                "values" : {
-                  "localIdentifiers[0].value" : "!rand.getAny(BPN_OEM_B, BPN_OEM_C)"
-                },
-                "name" : "MessagingTestOEMADoorKey",
-                "count" : 1,
-                "version" : "1.0"
-              } ],
-              "code" : [ "vehicleItem.replaceAprChildren(item, subparents);" ],
-              "useId" : true,
-              "modelVersion" : "1.0.0",
-              "values" : { },
-              "count" : 1,
-              "nodeType" : "CHILD",
-              "modelName" : "AssemblyPartRelationship",
-              "instanceId" : "",
-              "templateName" : "apr",
-              "children" : [ {
-                "include" : [ ],
-                "code" : [ ],
-                "useId" : true,
-                "modelVersion" : "1.0.0",
-                "values" : {
-                  "localIdentifiers[2].value" : "!rand.getPattern('/N/O/-999999999999999999999999')",
-                  "localIdentifiers[0].value" : "!rand.getAny(BPN_OEM_B, BPN_OEM_C)"
-                },
-                "count" : 1,
-                "nodeType" : "PARENT",
-                "modelName" : "SerialPartTypization|batch",
-                "instanceId" : "",
-                "templateName" : "spt_door_key",
-                "children" : [ ],
-                "useTemplate" : true,
-                "comment" : "",
-                "templateVersion" : "1.0"
-              } ],
-              "useTemplate" : true,
-              "comment" : "",
-              "templateVersion" : "1.0"
-            } ],
-            "useTemplate" : true,
-            "comment" : "",
-            "templateVersion" : "1.0"
-          } ],
-          "useTemplate" : true,
-          "comment" : "",
-          "templateVersion" : "1.0"
-        } ],
-        "useTemplate" : true,
-        "comment" : "",
-        "templateVersion" : "1.0"
-      }, {
-        "include" : [ ],
-        "code" : [ ],
-        "useId" : true,
-        "modelVersion" : "1.0.0",
-        "values" : {
-          "localIdentifiers[2].value" : "!var id = rand.getPattern('AAAAAAAAAAAAAA') ;if (vehicleItem.var('oem')==BPN_OEM_A) { 'OMA'+id } else if (vehicleItem.var('oem')==BPN_OEM_B) { 'OMB' +id} else { 'OMC'+id }",
-          "localIdentifiers[1].value" : "$partTypeInformation.manufacturerPartId",
-          "localIdentifiers[0].value" : "!var val = BPN_OEM_B;vehicleItem.var('oem', val);val",
-          "partTypeInformation.manufacturerPartId" : "!rand.getPattern('CC/-99')",
-          "localIdentifiers[3].value" : "$localIdentifiers[2].value",
-          "manufacturingInformation.date" : "!rand.formatDate(rand.getDateBetween(rand.getDate(2012, 11, 16), rand.getDate(2020, 12, 31)))"
-        },
-        "count" : 10,
-        "nodeType" : "PARENT",
-        "modelName" : "SerialPartTypization",
-        "instanceId" : "",
-        "templateName" : "spt_vehicle_hybrid",
-        "children" : [ {
-          "include" : [ {
-            "code" : [ ],
-            "values" : { },
-            "name" : "MessagingTestOEMBDoorLeft",
-            "count" : 1,
-            "version" : "1.0"
-          } ],
-          "code" : [ "vehicleItem.replaceAprChildren(item, subparents);" ],
-          "useId" : true,
-          "modelVersion" : "1.0.0",
-          "values" : { },
-          "count" : 1,
-          "nodeType" : "CHILD",
-          "modelName" : "AssemblyPartRelationship",
-          "instanceId" : "",
-          "templateName" : "apr",
-          "children" : [ {
-            "include" : [ ],
-            "code" : [ ],
-            "useId" : true,
-            "modelVersion" : "1.0.0",
-            "values" : {
-              "localIdentifiers[2].value" : "!rand.getPattern('/N/O/-999999999999999999999999')",
-              "localIdentifiers[0].value" : "!rand.getAny(BPN_OEM_A, BPN_OEM_C)"
-            },
-            "count" : 1,
-            "nodeType" : "PARENT",
-            "modelName" : "SerialPartTypization",
-            "instanceId" : "",
-            "templateName" : "spt_door_front_left",
-            "children" : [ {
-              "include" : [ {
-                "code" : [ ],
-                "values" : {
-                  "localIdentifiers[0].value" : "!rand.getAny(BPN_OEM_A, BPN_OEM_C)"
-                },
-                "name" : "MessagingTestOEMBDoorKey",
-                "count" : 1,
-                "version" : "1.0"
-              } ],
-              "code" : [ "vehicleItem.replaceAprChildren(item, subparents);" ],
-              "useId" : true,
-              "modelVersion" : "1.0.0",
-              "values" : { },
-              "count" : 1,
-              "nodeType" : "CHILD",
-              "modelName" : "AssemblyPartRelationship",
-              "instanceId" : "",
-              "templateName" : "apr",
-              "children" : [ {
-                "include" : [ ],
-                "code" : [ ],
-                "useId" : true,
-                "modelVersion" : "1.0.0",
-                "values" : {
-                  "localIdentifiers[2].value" : "!rand.getPattern('/N/O/-999999999999999999999999')",
-                  "localIdentifiers[0].value" : "!rand.getAny(BPN_OEM_A, BPN_OEM_C)"
-                },
-                "count" : 1,
-                "nodeType" : "PARENT",
-                "modelName" : "SerialPartTypization|batch",
-                "instanceId" : "",
-                "templateName" : "spt_door_key",
-                "children" : [ ],
-                "useTemplate" : true,
-                "comment" : "",
-                "templateVersion" : "1.0"
-              } ],
-              "useTemplate" : true,
-              "comment" : "",
-              "templateVersion" : "1.0"
-            } ],
-            "useTemplate" : true,
-            "comment" : "",
-            "templateVersion" : "1.0"
-          } ],
-          "useTemplate" : true,
-          "comment" : "",
-          "templateVersion" : "1.0"
-        } ],
-        "useTemplate" : true,
-        "comment" : "",
-        "templateVersion" : "1.0"
-      }, {
-        "include" : [ ],
-        "code" : [ ],
-        "useId" : true,
-        "modelVersion" : "1.0.0",
-        "values" : {
-          "localIdentifiers[2].value" : "!var id = rand.getPattern('AAAAAAAAAAAAAA') ;if (vehicleItem.var('oem')==BPN_OEM_A) { 'OMA'+id } else if (vehicleItem.var('oem')==BPN_OEM_B) { 'OMB' +id} else { 'OMC'+id }",
-          "localIdentifiers[1].value" : "$partTypeInformation.manufacturerPartId",
-          "localIdentifiers[0].value" : "!var val = BPN_OEM_C;vehicleItem.var('oem', val);val",
-          "partTypeInformation.manufacturerPartId" : "!rand.getPattern('CC/-99')",
-          "localIdentifiers[3].value" : "$localIdentifiers[2].value",
-          "manufacturingInformation.date" : "!rand.formatDate(rand.getDateBetween(rand.getDate(2012, 11, 16), rand.getDate(2020, 12, 31)))"
-        },
-        "count" : 10,
-        "nodeType" : "PARENT",
-        "modelName" : "SerialPartTypization",
-        "instanceId" : "",
-        "templateName" : "spt_vehicle_hybrid",
-        "children" : [ {
-          "include" : [ {
-            "code" : [ ],
-            "values" : { },
-            "name" : "MessagingTestOEMCDoorLeft",
-            "count" : 1,
-            "version" : "1.0"
-          } ],
-          "code" : [ "vehicleItem.replaceAprChildren(item, subparents);" ],
-          "useId" : true,
-          "modelVersion" : "1.0.0",
-          "values" : { },
-          "count" : 1,
-          "nodeType" : "CHILD",
-          "modelName" : "AssemblyPartRelationship",
-          "instanceId" : "",
-          "templateName" : "apr",
-          "children" : [ {
-            "include" : [ ],
-            "code" : [ ],
-            "useId" : true,
-            "modelVersion" : "1.0.0",
-            "values" : {
-              "localIdentifiers[2].value" : "!rand.getPattern('/N/O/-999999999999999999999999')",
-              "localIdentifiers[0].value" : "!rand.getAny(BPN_OEM_A, BPN_OEM_B)"
-            },
-            "count" : 1,
-            "nodeType" : "PARENT",
-            "modelName" : "SerialPartTypization",
-            "instanceId" : "",
-            "templateName" : "spt_door_front_left",
-            "children" : [ {
-              "include" : [ {
-                "code" : [ ],
-                "values" : {
-                  "localIdentifiers[0].value" : "!rand.getAny(BPN_OEM_B, BPN_OEM_A)"
-                },
-                "name" : "MessagingTestOEMCDoorKey",
-                "count" : 1,
-                "version" : "1.0"
-              } ],
-              "code" : [ "vehicleItem.replaceAprChildren(item, subparents);" ],
-              "useId" : true,
-              "modelVersion" : "1.0.0",
-              "values" : { },
-              "count" : 1,
-              "nodeType" : "CHILD",
-              "modelName" : "AssemblyPartRelationship",
-              "instanceId" : "",
-              "templateName" : "apr",
-              "children" : [ {
-                "include" : [ ],
-                "code" : [ ],
-                "useId" : true,
-                "modelVersion" : "1.0.0",
-                "values" : {
-                  "localIdentifiers[2].value" : "!rand.getPattern('/N/O/-999999999999999999999999')",
-                  "localIdentifiers[0].value" : "!rand.getAny(BPN_OEM_B, BPN_OEM_A)"
-                },
-                "count" : 1,
-                "nodeType" : "PARENT",
-                "modelName" : "SerialPartTypization|batch",
-                "instanceId" : "",
-                "templateName" : "spt_door_key",
-                "children" : [ ],
-                "useTemplate" : true,
-                "comment" : "",
-                "templateVersion" : "1.0"
-              } ],
-              "useTemplate" : true,
-              "comment" : "",
-              "templateVersion" : "1.0"
-            } ],
-            "useTemplate" : true,
-            "comment" : "",
-            "templateVersion" : "1.0"
-          } ],
-          "useTemplate" : true,
-          "comment" : "",
-          "templateVersion" : "1.0"
-        } ],
-        "useTemplate" : true,
-        "comment" : "",
-        "templateVersion" : "1.0"
-      } ],
-      "useTemplate" : false,
-      "comment" : "",
-      "templateVersion" : ""
-    },
-    "name" : "Catena-X Messaging Test",
-    "version" : "0.0.1"
-  } ]
 }
