@@ -1,6 +1,7 @@
 {
   "https://catenax.io/schema/TestDataContainer/1.0.0" : [ {
     "catenaXId" : "urn:uuid:0fed587c-7ab4-4597-9841-1718e9693003",
+    "bpnl" : "BPNL00000003CML1",
     "PlainObject" : [ {
       "BPN_OEM_C" : "BPNL00000003CML1",
       "BPN_OEM_A" : "BPNL00000003CSGV",
