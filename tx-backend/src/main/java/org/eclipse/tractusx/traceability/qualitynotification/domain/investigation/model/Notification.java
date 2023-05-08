@@ -24,7 +24,11 @@ package org.eclipse.tractusx.traceability.qualitynotification.domain.investigati
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 import org.eclipse.tractusx.traceability.common.model.BPN;
+import org.eclipse.tractusx.traceability.qualitynotification.domain.base.QualityNotification;
+import org.eclipse.tractusx.traceability.qualitynotification.domain.base.QualityNotificationMessage;
+import org.eclipse.tractusx.traceability.qualitynotification.domain.base.QualityNotificationStatus;
 import org.eclipse.tractusx.traceability.qualitynotification.domain.investigation.model.exception.NotificationStatusTransitionNotAllowed;
 
 import java.time.Instant;
@@ -35,111 +39,59 @@ import java.util.UUID;
 
 import static java.util.Objects.requireNonNullElseGet;
 
+@SuperBuilder
 @Getter
 @Setter
 @ToString
-public class Notification {
-    private final String id;
-    private String notificationReferenceId;
-    private String senderBpnNumber;
-    private final String senderManufacturerName;
-    private String receiverBpnNumber;
-    private final String receiverManufacturerName;
-    private String edcUrl;
-    private String contractAgreementId;
-    private final List<AffectedPart> affectedParts;
-    private String description;
-    private InvestigationStatus investigationStatus;
-    private String edcNotificationId;
-    private LocalDateTime created;
-    private LocalDateTime updated;
-    private Instant targetDate;
-    private Severity severity;
-    private String messageId;
-    private Boolean isInitial;
+public class Notification extends QualityNotificationMessage {
 
-    public Notification(String id,
-                        String notificationReferenceId,
-                        String senderBpnNumber,
-                        String senderManufacturerName,
-                        String receiverBpnNumber,
-                        String receiverManufacturerName,
-                        String edcUrl,
-                        String contractAgreementId,
-                        String description,
-                        InvestigationStatus investigationStatus,
-                        List<AffectedPart> affectedParts,
-                        Instant targetDate,
-                        Severity severity,
-                        String edcNotificationId,
-                        LocalDateTime created,
-                        LocalDateTime updated,
-                        String messageId,
-                        Boolean isInitial) {
-        this.id = id;
-        this.notificationReferenceId = notificationReferenceId;
-        this.senderBpnNumber = senderBpnNumber;
-        this.senderManufacturerName = senderManufacturerName;
-        this.receiverBpnNumber = receiverBpnNumber;
-        this.receiverManufacturerName = receiverManufacturerName;
-        this.edcUrl = edcUrl;
-        this.contractAgreementId = contractAgreementId;
-        this.description = description;
-        this.investigationStatus = investigationStatus;
-        this.affectedParts = requireNonNullElseGet(affectedParts, ArrayList::new);
-        this.targetDate = targetDate;
-        this.severity = severity;
-        this.edcNotificationId = edcNotificationId;
-        this.created = created;
-        this.updated = updated;
-        this.messageId = messageId;
-        this.isInitial = isInitial;
+    private QualityNotificationStatus investigationStatus;
+
+    public QualityNotificationMessage copyAndSwitchSenderAndReceiver(BPN applicationBpn) {
+        final String notificationId = UUID.randomUUID().toString();
+        String receiver = super.getReceiverBpnNumber();
+        String sender = super.getSenderBpnNumber();
+        String receiverManufactureName = super.getReceiverManufacturerName();
+        String senderManufactureName = super.getSenderManufacturerName();
+
+        // This is needed to make sure that the app can send a message to the receiver and not addresses itself
+        if (applicationBpn.value().equals(receiver)) {
+            receiver = sender;
+            sender = receiver;
+            receiverManufactureName = senderManufactureName;
+            senderManufactureName = receiverManufactureName;
+        }
+
+        return Notification.builder()
+                .id(notificationId)
+                .senderBpnNumber(sender)
+                .senderManufacturerName(senderManufactureName)
+                .receiverBpnNumber(receiver)
+                .receiverManufacturerName(receiverManufactureName)
+                .edcUrl(getEdcUrl())
+                .contractAgreementId(getContractAgreementId())
+                .description(getDescription())
+                .investigationStatus(investigationStatus)
+                .affectedParts(getAffectedParts())
+                .targetDate(getTargetDate())
+                .severity(getSeverity())
+                .edcNotificationId(getEdcNotificationId())
+                .created(getCreated())
+                .updated(getUpdated())
+                .messageId(UUID.randomUUID().toString())
+                .isInitial(false)
+                .build();
     }
 
-    void changeStatusTo(InvestigationStatus to) {
+    void changeStatusTo(QualityNotificationStatus to) {
         boolean transitionAllowed = investigationStatus.transitionAllowed(to);
 
         if (!transitionAllowed) {
-            throw new NotificationStatusTransitionNotAllowed(id, investigationStatus, to);
+            throw new NotificationStatusTransitionNotAllowed(getId(), investigationStatus, to);
         }
         this.investigationStatus = to;
     }
 
-
     // Important - receiver and sender will be saved in switched order
-    public Notification copyAndSwitchSenderAndReceiver(BPN applicationBpn) {
-        final String notificationId = UUID.randomUUID().toString();
-        String receiver = receiverBpnNumber;
-        String sender = senderBpnNumber;
-        String receiverManufactureName = receiverManufacturerName;
-        String senderManufactureName = senderManufacturerName;
 
-        // This is needed to make sure that the app can send a message to the receiver and not addresses itself
-        if (applicationBpn.value().equals(receiverBpnNumber)) {
-            receiver = senderBpnNumber;
-            sender = receiverBpnNumber;
-            receiverManufactureName = senderManufacturerName;
-            senderManufactureName = receiverManufacturerName;
-        }
-        return new Notification(
-                notificationId,
-                null,
-                sender,
-                senderManufactureName,
-                receiver,
-                receiverManufactureName,
-                edcUrl,
-                contractAgreementId,
-                description,
-                investigationStatus,
-                affectedParts,
-                targetDate,
-                severity,
-                edcNotificationId,
-                created,
-                updated,
-                UUID.randomUUID().toString(),
-                false
-        );
-    }
 }
