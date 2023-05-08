@@ -22,9 +22,13 @@
 package org.eclipse.tractusx.traceability.qualitynotification.domain.investigation.model;
 
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 import org.eclipse.tractusx.traceability.common.model.BPN;
 import org.eclipse.tractusx.traceability.qualitynotification.application.investigation.response.InvestigationDTO;
 import org.eclipse.tractusx.traceability.qualitynotification.application.investigation.response.InvestigationReason;
+import org.eclipse.tractusx.traceability.qualitynotification.domain.base.QualityNotification;
+import org.eclipse.tractusx.traceability.qualitynotification.domain.base.QualityNotificationSide;
+import org.eclipse.tractusx.traceability.qualitynotification.domain.base.QualityNotificationStatus;
 import org.eclipse.tractusx.traceability.qualitynotification.domain.investigation.model.exception.InvestigationIllegalUpdate;
 import org.eclipse.tractusx.traceability.qualitynotification.domain.investigation.model.exception.InvestigationStatusTransitionNotAllowed;
 
@@ -38,20 +42,14 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@SuperBuilder
 @Data
-public class Investigation {
+public class Investigation extends QualityNotification {
 
     private InvestigationId investigationId;
-    private BPN bpn;
-    private InvestigationStatus investigationStatus;
-    private InvestigationSide investigationSide;
-    private String description;
-    private Instant createdAt;
-    private List<String> assetIds;
-    private Map<String, Notification> notifications;
-    private String closeReason;
-    private String acceptReason;
-    private String declineReason;
+    private QualityNotificationStatus investigationStatus;
+    private QualityNotificationSide investigationSide;
+
 
     public Investigation(InvestigationId investigationId,
                          BPN bpn,
@@ -69,7 +67,7 @@ public class Investigation {
         this.bpn = bpn;
         this.investigationStatus = investigationStatus;
         this.investigationSide = investigationSide;
-        this.closeReason = closeReason;
+        this.setCloseReason(closeReason);
         this.acceptReason = acceptReason;
         this.declineReason = declineReason;
         this.description = description;

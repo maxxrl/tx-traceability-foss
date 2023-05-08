@@ -50,6 +50,7 @@ public class QualityNotificationMessageBaseEntity {
     private LocalDateTime updated;
     private String messageId;
     private Boolean isInitial;
+    private QualityNotificationStatusBaseEntity status;
 
     @PreUpdate
     public void preUpdate() {

@@ -33,8 +33,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.eclipse.tractusx.traceability.assets.infrastructure.adapters.jpa.asset.AssetEntity;
-import org.eclipse.tractusx.traceability.qualitynotification.domain.investigation.model.InvestigationSide;
-import org.eclipse.tractusx.traceability.qualitynotification.domain.investigation.model.InvestigationStatus;
 import org.eclipse.tractusx.traceability.qualitynotification.infrastructure.base.QualityNotificationBaseEntity;
 
 import java.util.List;
@@ -57,7 +55,5 @@ public class InvestigationEntity extends QualityNotificationBaseEntity {
 
     @OneToMany(mappedBy = "investigation")
     private List<NotificationEntity> notifications;
-    private InvestigationStatus status;
-    private InvestigationSide side;
 
 }
